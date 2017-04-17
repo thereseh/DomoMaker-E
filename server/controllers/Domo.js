@@ -60,12 +60,12 @@ const getDomos = (request, response) => {
 const removeDomo = (request, response) => {
   const req = request;
   const res = response;
-  let data = {
+  const data = {
     name: req.body.name,
     age: req.body.age,
     food: req.body.favFood,
   };
-  
+
   return Domo.DomoModel.findAndRemove(data, (err, docs) => {
     if (err) {
       console.log(err);

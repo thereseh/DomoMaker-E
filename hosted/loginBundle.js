@@ -157,7 +157,6 @@ var redirect = function redirect(response) {
 };
 
 var sendAjax = function sendAjax(type, action, data, success) {
-  console.dir(data);
   $.ajax({
     catche: false,
     type: type,

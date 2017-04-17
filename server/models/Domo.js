@@ -21,7 +21,7 @@ const DomoSchema = new mongoose.Schema({
     min: 0,
     required: true,
   },
-    
+
   favFood: {
     type: String,
     required: true,
@@ -57,7 +57,6 @@ DomoSchema.statics.findByOwner = (ownerId, callback) => {
 
 // finds a specific domo and removes it
 DomoSchema.statics.findAndRemove = (data, callback) => {
-  console.dir(data);
   const search = {
     name: data.name,
     age: data.age,
@@ -65,7 +64,6 @@ DomoSchema.statics.findAndRemove = (data, callback) => {
   };
 
   return DomoModel.find(search).remove().exec(callback);
-
 };
 
 
