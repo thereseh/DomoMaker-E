@@ -19,9 +19,13 @@ const handleDomo = (e) => {
   return false;
 };
 
+/* Surely not a safe/good way to do this,
+   but was what I could come up with */
 const removeDomo = (name, age, food) => {
   $("#domoMessage").animate({width:'hide'},350);
+  // get key value, not safe
   let key = $("#cs")[0].attributes.value.value;
+  // data to send
   let data = `name=${name}&age=${age}&favFood=${food}&_csrf=${key}`;
   sendAjax('DELETE', '/removeDomo', data, function() {
     domoRenderer.loadDomosFromServer();

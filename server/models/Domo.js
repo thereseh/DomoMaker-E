@@ -55,7 +55,8 @@ DomoSchema.statics.findByOwner = (ownerId, callback) => {
   return DomoModel.find(search).select('name age favFood').exec(callback);
 };
 
-DomoSchema.statics.findAndRemove = (data) => {
+// finds a specific domo and removes it
+DomoSchema.statics.findAndRemove = (data, callback) => {
   console.dir(data);
   const search = {
     name: data.name,
@@ -63,8 +64,8 @@ DomoSchema.statics.findAndRemove = (data) => {
     favFood: data.food,
   };
 
-  const removePromise = DomoModel.remove(search);
-  return removePromise;
+  return DomoModel.find(search).remove().exec(callback);
+
 };
 
 
